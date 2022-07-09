@@ -1,5 +1,5 @@
 # docker-compose.yml
-version: '2'
+version: "2"
 services:
   prometheus:
     image: prom/prometheus:latest
@@ -7,9 +7,9 @@ services:
       - prometheus_data:/prometheus
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
+      - "--config.file=/etc/prometheus/prometheus.yml"
     ports:
-      - '9090:9090'
+      - "9095:9090"
   grafana:
     image: grafana/grafana:latest
     volumes:
@@ -18,19 +18,20 @@ services:
       - ./grafana/config.ini:/etc/grafana/config.ini
       - ./grafana/dashboards:/var/lib/grafana/dashboards
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=illchangeitanyway
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
     depends_on:
       - prometheus
     ports:
-      - '3000:3000'
+      - "3000:3000"
   app:
     build:
       context: ./app
       dockerfile: Dockerfile
     ports:
-      - '9200:9200'
-    command: 'index.js'
-
+      - "9200:9200"
+    command: "index.js"
 
 volumes:
   prometheus_data: {}

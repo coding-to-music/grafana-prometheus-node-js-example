@@ -1,0 +1,21 @@
+{
+  "name": "grafana-prometheus-node-js-example",
+  "version": "1.0.0",
+  "description": "## Run",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "git add . && git commit -m Build && git push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavlovdog/grafana-prometheus-node-js-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavlovdog/grafana-prometheus-node-js-example/issues"
+  },
+  "homepage": "https://github.com/pavlovdog/grafana-prometheus-node-js-example#readme"
+}
