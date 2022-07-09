@@ -12,7 +12,7 @@ https://sergeypotekhin.com/visualizing-data-from-the-node-js-app
 
 Example of a Grafana dashboard, using data from Prometheus:
 
-![Grafana screenshot](https://github.com/coding-to-music/tXerraform-cloudflare-prometheus-grafana/blob/main/images/grafana_prometheus.png?raw=true)
+![Grafana screenshot](https://github.com/coding-to-music/terraform-cloudflare-prometheus-grafana/blob/main/images/grafana_prometheus.png?raw=true)
 
 ## Environment variables:
 
