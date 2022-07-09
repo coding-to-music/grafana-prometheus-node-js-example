@@ -49,3 +49,60 @@ See ya!
 ## Prometheus port has been changed to 9095 to avoid conflicts with existing use of the port
 
 Prometheus port has been changed to 9095 to avoid conflicts with existing use of the port
+
+## App metrics
+
+```java
+const client = require('prom-client');
+const gaussian = require('gaussian');
+
+
+function activeUsersPerCategoryMetric(registry) {
+  const gauge = new client.Gauge({
+    name: 'active_users',
+    help: 'Amount of active users right now per category',
+    registers: [registry],
+    labelNames: [
+      'category',
+    ],
+  });
+
+  // To make data looks more
+  const categoriesWithDistribution = [
+    ['oil', 100, 30],
+    ['wine', 200, 30],
+    ['bread', 300, 30],
+    ['butter', 400, 30],
+  ];
+
+  async function collectActiveUsers() {
+    categoriesWithDistribution.map(async ([category, mean, variance]) => {
+      gauge.set(
+        { category },
+        Math.floor(gaussian(mean, variance).ppf(Math.random())),
+      );
+    });
+  }
+
+  setInterval(collectActiveUsers, 5000);
+}
+
+
+module.exports = (registry) => {
+  activeUsersPerCategoryMetric(registry);
+};
+
+```
+
+## view the app metrics
+
+http://localhost:9200/metrics
+
+```
+# HELP active_users Amount of active users right now per category
+# TYPE active_users gauge
+active_users{category="oil"} 101
+active_users{category="wine"} 204
+active_users{category="bread"} 298
+active_users{category="butter"} 396
+```
