@@ -14,6 +14,36 @@ Example of a Grafana dashboard, using data from Prometheus:
 
 ![Grafana screenshot](https://github.com/coding-to-music/grafana-prometheus-node-js-example/blob/main/images/example-dashboard.png?raw=true)
 
+## Another good Grafana info source:
+
+Grafana Dashboard with JSON APIs. visualize JSON, CSV, Graphql, XML in grafana
+
+https://www.youtube.com/watch?v=Wmgs1E9Ry-s&ab_channel=SriramS
+
+http://jsonviewer.stack.hu/
+
+## Infinity Data source
+
+https://github.com/yesoreyeram/grafana-infinity-datasource
+
+https://sriramajeyam.com/grafana-infinity-datasource/
+
+https://grafana.com/grafana/plugins/yesoreyeram-infinity-datasource/
+
+## Citibike API
+
+https://ride.citibikenyc.com/system-data
+
+http://gbfs.citibikenyc.com/gbfs/gbfs.json
+
+https://gbfs.citibikenyc.com/gbfs/en/station_status.json
+
+## covid19api
+
+https://api.covid19api.com
+
+https://api.covid19api.com/summary
+
 ## Environment variables:
 
 ```java
